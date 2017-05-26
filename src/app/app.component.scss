@@ -1,0 +1,21 @@
+/*h1 {
+    font-style: italic;
+}
+*/
+
+app-root>app-component-sidenav {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+app-component-sidenav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /*
+-webkit-box-flex: 1;
+-ms-flex: 1 1 auto;
+flex: 1 1 auto;
+*/
+}

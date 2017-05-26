@@ -1,0 +1,53 @@
+<header class="code background-sky">
+    <h1 class="title ">Ajax request </h1>
+    <div class="clear"></div>
+    <h2 class="subtitle">JavaScript</h2>
+</header>
+
+<article class="l-content-small grid-fluid docs-content">
+
+    <div class="code-example">
+        <header>
+            <h4>Function loadDoc()</h4>
+        </header>
+
+        <pre>
+      <code codeHighlight class="javascript">
+        function loadDoc() {{
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML = this.responseText;
+              }
+            };
+            xhttp.open("GET", "ajax_info.txt", true);
+            xhttp.send();
+        }
+        };
+      </code>
+    </pre>
+
+        <!--
+    <code-example language="ts" format="">
+        <copy-container>
+            <div class="copy-container-template">
+                <copy-button class="copy-button">
+                  <button class="md-copy-button md-button md-ink-ripple" type="button" ng-transclude="">
+Copy Code
+
+</button></copy-button>
+                <ng-transclude><pre class="prettyprint  lang-ts ng-scope prettyprinted"><code ng-non-bindable=""><span class="kwd">import</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="typ">Component</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="str">'@angular/core'</span><span class="pun">;</span><span class="pln">
+
+</span><span class="lit">@Component</span><span class="pun">({</span><span class="pln">
+  selector</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my-app'</span><span class="pun">,</span><span class="pln">
+  </span><span class="kwd">template</span><span class="pun">:</span><span class="pln"> </span><span class="str">`&lt;h1&gt;Hello {{name}}&lt;/h1&gt;`</span><span class="pln">
+</span><span class="pun">})</span><span class="pln">
+</span><span class="kwd">export</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AppComponent</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Angular'</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></code></pre></ng-transclude>
+            </div>
+        </copy-container>
+    </code-example>
+
+    -->
+    </div>
+
+</article>
