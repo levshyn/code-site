@@ -17,8 +17,22 @@ import 'hammerjs';
 
 // import directive for highlight of code in html
 import { HighlightCodeDirective } from './code-pages/code-pages.directives';
+
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { SidenavNavComponent } from './sidenav/sidenav-nav/sidenav-nav.component';
+
+/* Import prism core */
+import 'prismjs/prism';
+/* Import the language you need to highlight */
+import 'prismjs/components/prism-javascript';
+import { PrismComponent } from 'angular-prism';
+
+
+// import snippets service
+import { SnippetService } from './services/snippet.service';
+
+// import snippet model
+import { SnippetModelService } from './services/snippet-model.service';
 
 
 @NgModule({
@@ -29,18 +43,23 @@ import { SidenavNavComponent } from './sidenav/sidenav-nav/sidenav-nav.component
     CodePagesComponent,
     HighlightCodeDirective,
     SidenavComponent,
-    SidenavNavComponent
+    SidenavNavComponent,
+    PrismComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(
+      AppRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
     BrowserAnimationsModule,
     MyMaterialModule
   ],
-  providers: [],
+  providers: [SnippetService, // Add the snippets service
+    SnippetModelService], // Add the snippet model
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+
+import { Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-component-sidenav',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  doShow: boolean;
+
+  constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private cdRef: ChangeDetectorRef) {
+  }
 
   ngOnInit() {
   }

@@ -9,7 +9,7 @@ export const AppRoutes: Routes = [
     // data: { title: 'About Me' }
   },
   {
-    path: 'code',
+    path: 'code/:id',
     component: CodePagesComponent // ,
     // data: { title: 'Code' }
   },

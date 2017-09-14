@@ -138,3 +138,9 @@ header {
 .hljs {
     background: none;
 }
+
+pre {
+    &.language-javascript {
+        box-shadow: none;
+    }
+}
