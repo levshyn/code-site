@@ -15,6 +15,9 @@ import { MyMaterialModule } from './app.material.modules';
 // Load hammerJS
 import 'hammerjs';
 
+// import FlexLayoutModule for angular/flex
+import { FlexLayoutModule } from "@angular/flex-layout";
+
 // import directive for highlight of code in html
 import { HighlightCodeDirective } from './code-pages/code-pages.directives';
 
@@ -34,6 +37,8 @@ import { SnippetService } from './services/snippet.service';
 // import snippet model
 import { SnippetModelService } from './services/snippet-model.service';
 
+// import menu navigation service
+import { MenuNavService } from './services/menu-nav.service';
 
 @NgModule({
   declarations: [
@@ -56,10 +61,12 @@ import { SnippetModelService } from './services/snippet-model.service';
       { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserAnimationsModule,
-    MyMaterialModule
+    MyMaterialModule,
+    FlexLayoutModule.forRoot()
   ],
   providers: [SnippetService, // Add the snippets service
-    SnippetModelService], // Add the snippet model
+    SnippetModelService, // Add the snippet model
+    MenuNavService], // Add the menu navigation service
   bootstrap: [AppComponent]
 })
 export class AppModule { }

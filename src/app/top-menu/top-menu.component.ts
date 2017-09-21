@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuNavService } from '../services/menu-nav.service';
 
 @Component({
   selector: 'app-top-menu',
@@ -8,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 
 export class TopMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sidenavService: MenuNavService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+  }
+
+  public toggleSidenav() {
+    this.sidenavService
+      .toggle()
+      .then(() => {
+      });
   }
 
 }

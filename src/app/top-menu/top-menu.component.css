@@ -32,6 +32,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    position: absolute;
 }
 
 .main-nav ul li {
@@ -63,3 +64,14 @@
     -webkit-transition: all .3s;
     transition: all .3s;
 }
+
+/*
+@media screen and (max-width: 600px) {
+
+    .main-nav ul li {
+        display: none;
+        margin: 0;
+    }
+
+}
+*/

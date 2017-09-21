@@ -291,3 +291,18 @@
 2017-09-14T17:12:43.633Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
 2017-09-14T17:12:43.654Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
 2017-09-14T21:00:48.387Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-14T21:17:54.888Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-14T21:17:54.950Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-14T21:17:54.998Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-16T21:10:14.859Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-16T21:54:46.979Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-16T21:54:47.008Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-16T21:54:48.017Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-16T21:54:48.023Z - error: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connection error: MongoError: failed to connect to server [localhost:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+2017-09-16T21:56:43.413Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-16T21:56:43.440Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-16T21:56:43.462Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-17T09:36:10.172Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-21T09:35:10.835Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-21T09:35:11.192Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-21T09:35:11.446Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r

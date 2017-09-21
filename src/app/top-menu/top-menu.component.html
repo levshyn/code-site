@@ -25,16 +25,21 @@
 
 <nav class="main-nav">
     <ul>
-        <li class="l-left">
+        <li class="l-left current">
+            <button md-button (click)="toggleSidenav()" class="nav-link">
+                <md-icon>menu</md-icon>
+            </button>
+        </li>
+        <li class="l-left current">
             <button md-button class="nav-link" routerLink="home">
-            <md-icon>icon</md-icon>
-            <span>About</span>
+                <md-icon>home</md-icon>
+                <span>About</span>
             </button>
         </li>
         <li class="l-left">
             <button md-button class="nav-link" routerLink="code">
-            <md-icon>icon</md-icon>
-            <span>Code</span>
+                <md-icon>code</md-icon>
+                <span>Code</span>
             </button>
         </li>
     </ul>
