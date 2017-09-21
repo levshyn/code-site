@@ -29,7 +29,9 @@ var snippetSchema = new mongoose.Schema({
     // the code snippet
     codeSnippet: { type: String, required: true },
     // a link to the example if it exists
-    link: { type: String }
+    link: { type: String },
+    // is a visible?
+    visible: { type: String, required: true }
     // ToDo
     // , date : {}
 });

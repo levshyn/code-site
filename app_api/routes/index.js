@@ -14,7 +14,6 @@ router.get('/locations/:name', ctrlLocations.locationsReadOne);
 // router.put('/locations/:locationid', ctrlLocations.locationsUpdateOne);
 // router.delete('/locations/:locationid', ctrlLocations.locationsDeleteOne);
 
-
 // reviews
 // Define routes for reviews
 /*router.post('/locations/:locationid/reviews', ctrlReviews.reviewsCreate);*/
