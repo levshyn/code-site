@@ -62,7 +62,7 @@ import { MenuNavService } from './services/menu-nav.service';
     ),
     BrowserAnimationsModule,
     MyMaterialModule,
-    FlexLayoutModule.forRoot()
+    FlexLayoutModule // FlexLayoutModule.forRoot()
   ],
   providers: [SnippetService, // Add the snippets service
     SnippetModelService, // Add the snippet model

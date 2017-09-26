@@ -11,7 +11,7 @@ var snippetSchema = new mongoose.Schema({
     1.1.0.1 - Ajax callback function in JavaScrip
     | | | |
     | | | -- method: callback = 1, promise = 2, Rx = 3;
-    | | ---- library: not exists = 0, jQuery = 1;
+    | | ---- library: not exists = 0, exist = 1;
     | ------ language: JavaScript = 1, typeScript = 2;
     -- thema: Ajax = 1.
     */
@@ -24,7 +24,7 @@ var snippetSchema = new mongoose.Schema({
     method: { type: String },
     // JavaScript, TypeScript
     language: { type: String, required: true },
-    // the library if exists (jQeury)
+    // if the library exists (jQeury)
     lib: { type: String },
     // the code snippet
     codeSnippet: { type: String, required: true },

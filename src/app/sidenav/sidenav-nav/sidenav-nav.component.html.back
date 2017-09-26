@@ -1,0 +1,47 @@
+<nav class="sidenav-nav">
+    <h3>Title</h3>
+    <ul>
+        <!-- -->
+        <!-- li>
+            <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/component/autocomplete" class="docs-component-viewer-sidenav-item-selected">
+                      Autocomplete
+                  </a>
+      </li -->
+        <li>
+            <a [routerLink]="['code', '1.1.0.1']" routerLinkActive="active" class="dont cclick on route">
+                    Javascript 1.1.0.1
+                </a>
+        </li>
+        <li>
+            <a [routerLink]="['code', '1.1.0.2']" routerLinkActive="active" class="docs-component-viewer-sidenav-item-selected">
+                  Javascript 1.1.0.2
+              </a>
+        </li>
+        <li>
+            <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/code/1.1.0.1">
+                    Datepicker
+                  </a>
+        </li>
+        <li>
+            <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/code/1.1.0.2">
+                    Input
+                  </a>
+        </li>
+        <li>
+            <a [routerLink]="['home']" routerLinkActive="active">
+                Home
+            </a>
+        </li>
+        <li>
+            <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/component/radio">
+                    Radio button
+                  </a>
+        </li>
+        <li>
+            <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/component/select">
+                    Select
+                  </a>
+        </li>
+    </ul>
+
+</nav>

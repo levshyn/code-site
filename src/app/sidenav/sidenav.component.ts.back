@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 import { MdSidenav } from '@angular/material';
 import { MenuNavService } from '../services/menu-nav.service';
-import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+// import { MediaChange, ObservableMedia } from "@angular/flex-layout";
 
 @Component({
   selector: 'app-component-sidenav',
@@ -14,25 +14,9 @@ export class SidenavComponent implements OnInit {
 
   // doShow: boolean;
   openFlag: boolean;
-  modeFlag: string;
 
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
-     private cdRef: ChangeDetectorRef, private sidenavService: MenuNavService,
-     media: ObservableMedia) {
-      media.asObservable()
-      .subscribe((change: MediaChange) => {
-        console.log('change.mqAlias = ' + change.mqAlias);
-        // if a screen size more less 600px (@angular/flex-layout static API, breakpoint xs)
-        // side nav is invisible by default
-        if (change.mqAlias == 'lg' || change.mqAlias == 'xl' || change.mqAlias == 'md' || change.mqAlias == 'sm') {
-          this.openFlag = true;
-          this.modeFlag = 'side';
-        }
-        else {
-          this.openFlag = false;
-          this.modeFlag = 'over';
-        }
-      });
+     private cdRef: ChangeDetectorRef, private sidenavService: MenuNavService) {  
   }
 
   ngOnInit(): void {
@@ -54,14 +38,14 @@ export class SidenavComponent implements OnInit {
       width = document.body.clientWidth;
       // console.log(document.body.clientWidth);
     }
-    /*
-    if (width >= 840) {
+    
+    if (width >= 600) {
       this.openFlag = true;
-    }
+    } 
     else {
       this.openFlag = false;
     }
-    */
+    
   }
 
 

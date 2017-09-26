@@ -30,7 +30,16 @@ export class SnippetModelService implements Serializable<SnippetModelService> {
     this.link = link;
   }
 */
+
   deserialize(input: any): SnippetModelService {
+
+    // DEBUG
+    console.log('methode deserialize, input variable');
+    Object.keys(input).forEach(key => {
+      console.log(key + ': ' + input[key]);
+    });
+
+
     if (input.hasOwnProperty('id')) {
       this.id = input.id;
     } else {

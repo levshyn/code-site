@@ -14,11 +14,46 @@ module.exports.locationsCreate = function(req, res) {
 };
 
 module.exports.snippetsList = function(req, res) {
-    Loc.mongooseModel
-        .find()
-        .exec(function(err, snippet) {
-            sendJSONresponse(res, 200, snippet);
-        });
+    console.log('Finding code snippets details, req.params', req.params);
+    console.log('req.query', req.query);
+
+    if (req.query) {
+      let query = {};
+      Object.keys(req.query).forEach(keyQuery => {
+        // Try-catch surrounds the loop to allow throwing the breakException as an equivalent
+        // for breaking out of the loop.
+        let breakException = {};
+        try {
+          // Loc.mongooseModel.schema.paths - properties of snippetSchema from ../models/snippets
+          Object.keys(Loc.mongooseModel.schema.paths).forEach(keySchema => {
+            if (keySchema == keyQuery) {
+              query[keyQuery] = req.query[keyQuery];
+              // console.log(keyQuery + ':' + req.query[keyQuery]);
+              throw breakException;
+            };
+          });
+
+        } catch (error) {
+            // If the error thrown was not the breakException, allow the error to continue up the
+            // stack.
+            if (error !== breakException) throw error;      
+        }
+      });
+      console.log('query after forEach:');
+      console.log(query);
+      Loc.mongooseModel
+          .find(query)
+          .exec(function(err, snippet) {
+              sendJSONresponse(res, 200, snippet);
+          });
+
+    } else {    
+        Loc.mongooseModel
+            .find()
+            .exec(function(err, snippet) {
+                sendJSONresponse(res, 200, snippet);
+            });
+    }
 };
 
 /* GET a location by the id */
