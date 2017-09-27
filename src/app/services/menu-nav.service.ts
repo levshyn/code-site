@@ -9,6 +9,10 @@ export class MenuNavService {
     this.sidenav = sidenav;
   }
 
+  public close(): Promise<MdDrawerToggleResult> {
+    return this.sidenav.close();
+  }
+
   public open(): Promise<MdDrawerToggleResult> {
     return this.sidenav.open();
   }
@@ -16,7 +20,7 @@ export class MenuNavService {
   public toggle(isOpen?: boolean): Promise<MdDrawerToggleResult> {
     return this.sidenav.toggle(isOpen);
   }
-
+ 
   constructor() {
   }
 }

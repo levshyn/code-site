@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { SnippetService } from '../../services/snippet.service';
+import { MenuNavService } from '../../services/menu-nav.service';
 
 interface SnippetMethodInterface {
   [key: string]: string;
@@ -14,12 +15,13 @@ interface SnippetMethodInterface {
 })
 
 export class SidenavNavComponent implements OnInit {
+  @Input() mode: string;
   snippets: {}[];
   sideNavMenu: {};
   objectKeys = Object.keys;
-  pages = [1, 2, 3, 4, 5];
+  // pages = [1, 2, 3, 4, 5];
 
-  constructor(private snippetService: SnippetService) {
+  constructor(private snippetService: SnippetService, private sidenavService: MenuNavService) {
     let query: string = 'visible=yes';
 
     this.snippetService.getAllSnippets(query)
@@ -81,6 +83,11 @@ export class SidenavNavComponent implements OnInit {
 
 
     return sideNavMenu;
+  }
+
+  public closeSidenav() {
+    if (this.mode === 'over')
+      this.sidenavService.close();
   }
 
 }

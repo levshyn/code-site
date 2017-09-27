@@ -1,8 +1,7 @@
-<md-sidenav-container (window:resize)="onResize($event)" class="docs-component-viewer-sidenav-container
-          mat-sidenav-container mat-sidenav-transition container">
-    <md-sidenav #sidenav class="docs-component-viewer-sidenav mat-sidenav
-          mat-sidenav-opened mat-sidenav-side sidenav" [mode]="modeFlag" [opened]="openFlag">
-        <app-sidenav-nav>
+<md-sidenav-container (window:resize)="onResize($event)" class="mat-sidenav-container mat-sidenav-transition container">
+    <md-sidenav #sidenav class="mat-sidenav
+          mat-sidenav-side sidenav" [mode]="modeFlag" [opened]="openFlag">
+        <app-sidenav-nav [mode]="modeFlag">
             <!-- nav menu for sidenav -->
         </app-sidenav-nav>
     </md-sidenav>

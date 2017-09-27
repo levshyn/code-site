@@ -19,72 +19,57 @@
  }
 */
 
- .mat-sidenav-container {
-     position: relative;
-     top: -2px;
-     transform: translate3d(0, 0, 0);
-     box-sizing: border-box;
-     -webkit-overflow-scrolling: touch;
-     display: block;
-     overflow: hidden;
- }
- 
- .docs-component-viewer-sidenav-container {
-     width: 100%;
- }
- 
- .mat-sidenav-container {
-     background-color: #fafafa;
-     color: rgba(0, 0, 0, .87);
- }
- 
- .mat-sidenav-transition .mat-sidenav {
-     transition: transform .4s cubic-bezier(.25, .8, .25, 1);
- }
- 
- .mat-sidenav.mat-sidenav-side {
-     z-index: 1;
- }
- 
- .mat-sidenav.mat-sidenav-opened,
- .mat-sidenav.mat-sidenav-opening {
-     transform: translate3d(0, 0, 0);
- }
- 
- .docs-component-viewer-sidenav,
- .docs-component-viewer-sidenav.mat-sidenav-opened {
-     box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
- }
- 
- .mat-sidenav {
-     position: relative;
-     transform: translate3d(0, 0, 0);
-     display: block;
-     position: absolute;
-     top: 0;
-     bottom: 0;
-     z-index: 3;
-     min-width: 5vw;
-     outline: 0;
-     box-sizing: border-box;
-     height: 100%;
-     overflow-y: auto;
-     transform: translate3d(-100%, 0, 0);
- }
- 
- .docs-component-viewer-sidenav {
-     padding-bottom: 72px;
-     width: 240px;
-     bottom: 0;
-     overflow: auto;
-     height: 100%;
- }
- 
- .mat-sidenav,
- .mat-sidenav.mat-sidenav-push {
-     background-color: #fff;
- }
- 
- .mat-sidenav {
-     color: rgba(0, 0, 0, .87);
- }
+.mat-sidenav-container {
+    position: relative;
+    // top: -2px;
+    transform: translate3d(0, 0, 0);
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    overflow: hidden;
+    background-color: #fafafa;
+    color: rgba(0, 0, 0, .87);
+    width: 100%;
+    .mat-sidenav {
+        transition: transform .4s cubic-bezier(.25, .8, .25, 1);
+    }
+}
+
+.mat-sidenav.mat-sidenav-side {
+    // z-index: 1;
+}
+
+// .mat-sidenav.mat-sidenav-opened,
+// .mat-sidenav.mat-sidenav-opening {
+//     transform: translate3d(0, 0, 0);
+// }
+// .docs-component-viewer-sidenav,
+// .docs-component-viewer-sidenav.mat-sidenav-opened {
+//
+// }
+.mat-sidenav {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    min-width: 5vw;
+    outline: 0;
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: auto;
+    transform: translate3d(-100%, 0, 0);
+    box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+    color: rgba(0, 0, 0, .87);
+    padding-bottom: 72px;
+    width: 240px;
+    bottom: 0;
+    overflow: auto;
+}
+
+.mat-sidenav,
+.mat-sidenav.mat-sidenav-push {
+    background-color: #fff;
+}

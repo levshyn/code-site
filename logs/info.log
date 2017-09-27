@@ -429,3 +429,47 @@
 2017-09-26T17:26:23.486Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
 2017-09-26T17:26:23.526Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
 2017-09-26T17:26:23.555Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-26T19:23:42.733Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-26T19:24:16.092Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-26T19:24:16.233Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-26T19:24:16.251Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-26T19:26:00.160Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-26T19:26:19.446Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-26T19:26:19.483Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-26T19:26:19.507Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-26T19:42:24.283Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-26T19:42:47.614Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-26T19:42:47.650Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-26T19:42:47.676Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-26T19:46:06.436Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-26T19:46:27.979Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-26T19:46:28.011Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-26T19:46:28.035Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-26T20:04:41.055Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-26T20:05:02.629Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-26T20:05:02.663Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-26T20:05:02.685Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-26T20:13:40.979Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-26T20:14:00.141Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-26T20:14:00.175Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-26T20:14:00.193Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-26T20:18:48.728Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-26T20:19:07.700Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-26T20:19:07.736Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-26T20:19:07.756Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-26T20:27:25.627Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-26T20:27:46.252Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-26T20:27:46.287Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-26T20:27:46.303Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-26T20:42:26.124Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-26T20:42:47.491Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-26T20:42:47.527Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-26T20:42:47.548Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-27T09:08:25.851Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-27T09:09:51.099Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-27T09:09:51.136Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-27T09:09:51.155Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
+2017-09-27T09:34:00.568Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose disconnected
+2017-09-27T09:52:22.175Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Application running on win32
+2017-09-27T09:52:22.213Z - info: [D:\Projects\mysite-angular-matdesign\server.js] API running on localhost:3000
+2017-09-27T09:52:22.233Z - info: [D:\Projects\mysite-angular-matdesign\app_api\models\db.js] Mongoose connected to mongodb://localhost/Loc8r
