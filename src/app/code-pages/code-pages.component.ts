@@ -132,13 +132,16 @@ export class CodePagesComponent implements OnInit, OnDestroy {
             console.log(this.router.routerState);
             console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
 
-
-            console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
+            // Emergency code
+            // if a first url /code/ or /code/:id (/code/1.1.0.1) 
+            // and a first page loaded then routerLinkActive don't add
+            // a class "active-method-link"
+            console.log('TTTTTTTTTTTTTTTTTTT Emergency code TTTTTTTTTTTTTTTTTTTT');
             let ar: any;
             ar = document.getElementsByClassName('id-' + this.param)[0];
             console.log(ar);
             if (this.router.isActive(this.router.url, true) && !ar.classList.contains('active-method-link')) {
-              alert('first');
+              // alert('first');
               ar.className += ' active-method-link';
             }
             // ar[0].click();
