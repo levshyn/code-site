@@ -9,7 +9,7 @@ export class SnippetService {
   private messageSource = new BehaviorSubject<string>(null);
   currentMessage = this.messageSource.asObservable();
 
-  private lastParam: string = '';
+  private _lastParam: string = '';
 
   constructor(private http: Http) { }
 
@@ -35,11 +35,11 @@ export class SnippetService {
   }
 
   changeParam(param: string) {
-    this.lastParam = param;
+    this._lastParam = param;
   }
 
-  getLastParam() {
-    return this.lastParam;
+  get lastParam(): string {
+    return this._lastParam;
   }
 
 }

@@ -86,7 +86,7 @@ export class CodePagesComponent implements OnInit, OnDestroy {
         if (!params['id']) {
           console.log('A)');
 
-          if (this.snippetService.getLastParam() === '') {
+          if (this.snippetService.lastParam === '') {
             console.log('B)');
             console.log('1) !!!!!!!!!!!!!!!!! this.param: ');
             console.log(this.param);
@@ -94,7 +94,7 @@ export class CodePagesComponent implements OnInit, OnDestroy {
           } else {
             console.log('C)');
             console.log('2) !!!!!!!!!!!!!!!!! this.param: ');
-            this.param = this.snippetService.getLastParam();
+            this.param = this.snippetService.lastParam;
             console.log(this.param);
           }
           this.router.navigateByUrl(this.router.url + '/' + this.param);
