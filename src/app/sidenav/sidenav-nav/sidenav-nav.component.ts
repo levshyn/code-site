@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { SnippetService } from '../../services/snippet.service';
 import { MenuNavService } from '../../services/menu-nav.service';
 
@@ -16,12 +16,14 @@ interface SnippetMethodInterface {
 
 export class SidenavNavComponent implements OnInit {
   @Input() mode: string;
-  snippets: {}[];
+  snippets: any; //{}[];
   sideNavMenu: {};
   objectKeys = Object.keys;
+  messageFirstParam: string;
   // pages = [1, 2, 3, 4, 5];
 
-  constructor(private snippetService: SnippetService, private sidenavService: MenuNavService) {
+  constructor(private snippetService: SnippetService, private sidenavService: MenuNavService,
+      private router: Router) {
     let query: string = 'visible=yes';
 
     this.snippetService.getAllSnippets(query)
@@ -31,9 +33,18 @@ export class SidenavNavComponent implements OnInit {
         console.log(snippets);
         console.log('sideNavDeserilize() = ');
         this.sideNavMenu = this.sideNavDeserilize(this.snippets);
-        console.log(this.sideNavMenu);
-
+        this.snippetService.changeMessage(this.snippets[0].id);
+        // console.log(this.sideNavMenu);
       // this.snippetModel = new SnippetModelService().deserialize(snippet);
+    });
+
+
+    this.router.events.subscribe((val) => {
+        if (val instanceof NavigationEnd) {
+          console.log('**************** sidenav-nav.component.ts ********************');
+          console.log(val.url);
+          console.log('************************************');
+        }
     });
 
 
@@ -43,7 +54,7 @@ export class SidenavNavComponent implements OnInit {
     // this.sub = this.route.params.subscribe((params) =>{
     //  this.event = this.eventService.getEvent(+params['id']);
     // });
-
+    this.snippetService.currentMessage.subscribe(message => this.messageFirstParam = message);
   }
 
   sideNavDeserilize(snippets: {}[]) {

@@ -14,14 +14,20 @@ export const AppRoutes: Routes = [
     // data: { title: 'Code' }
   },
   {
+    path: 'code',
+    component: CodePagesComponent // ,    
+    // redirectTo: '/code/1.1.0.1' // ,
+    // pathMatch: 'full'
+  },
+  {
     path: '',
     redirectTo: '/home',
-    pathMatch: 'full'
+    pathMatch: 'prefix'
   },
   {
     path: '**',
-    redirectTo: '/home',
-    pathMatch: 'full'
+    redirectTo: '/home' // ,
+    // pathMatch: 'full'
   } // ,
   // { path: '**', component: PageNotFoundComponent }
 ];

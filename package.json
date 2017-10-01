@@ -5,7 +5,7 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "set NODE_ENV=development && ng build && node server.js",
+        "build": "set NODE_ENV=development && ng build serve --host 192.168.1.129 && node server.js",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"

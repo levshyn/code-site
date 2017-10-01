@@ -10,7 +10,7 @@
      padding: 0 16px;
  }
  
- h3 {
+ h3, .language-titel {
      background: rgba(0, 0, 0, .32);
      color: #fff;
  }
@@ -33,10 +33,6 @@
      color: rgba(0, 0, 0, .54);
  }
  
- li>a.docs-component-viewer-sidenav-item-selected {
-     font-weight: 600;
- }
- 
  li>a {
      box-sizing: border-box;
      display: block;
@@ -47,12 +43,21 @@
      transition: all .3s;
      padding: 0 16px;
      position: relative;
+
+     &.active-method-link {
+       font-weight: 600;      
+     }
  }
  
  li>a {
      color: rgba(0, 0, 0, .54);
+     &.method-link {
+       &:hover {
+          background: #fafafa;
+          color: #3f51b5;      
+       }
+     }
  }
-
 
 
 /*

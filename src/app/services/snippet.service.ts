@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class SnippetService {
+
+  private messageSource = new BehaviorSubject<string>(null);
+  currentMessage = this.messageSource.asObservable();
+
+  private lastParam: string = '';
 
   constructor(private http: Http) { }
 
@@ -20,6 +26,20 @@ export class SnippetService {
   getByIdSnippet(id: string) {
     return this.http.get('/api/snippets/' + id)
       .map(res => res.json());
+  }
+
+  changeMessage(message: string) {
+      this.messageSource.next(message);
+    console.log('SnippetService, changeMessage(): ');
+    console.log(message);
+  }
+
+  changeParam(param: string) {
+    this.lastParam = param;
+  }
+
+  getLastParam() {
+    return this.lastParam;
   }
 
 }
