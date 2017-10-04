@@ -1,11 +1,15 @@
-<div class="code-page-layout">
+<div *ngIf="snippetModel" class="code-page-layout">
   <header class="code background-sky">
-      <h1 *ngIf="snippetModel" class="title ">{{ snippetModel.thema }}</h1>
+      <h1 class="title ">{{ snippetModel.thema }}</h1>
       <div class="clear"></div>
-      <h2 *ngIf="snippetModel" class="subtitle">{{ snippetModel.title }}</h2>
+      <h2 class="subtitle">{{ snippetModel.title }}</h2>
   </header>
 
   <article class="l-content-small grid-fluid docs-content">
+
+      <div class="article-text">
+          {{ snippetModel.text  }}
+      </div>
 
       <div class="code-example">
           <header>
@@ -18,7 +22,7 @@
         </code>
       </pre -->
           <ng-container class="temp-class" *ngIf="!rerender">
-              <prism-block *ngIf="snippetModel" id="code-snippet" [code]="snippetModel.codeSnippet" [language]="'javascript'">{{ snippetModel.codeSnippet }}</prism-block>
+              <prism-block id="code-snippet" [code]="snippetModel.codeSnippet" [language]="'javascript'">{{ snippetModel.codeSnippet }}</prism-block>
           </ng-container>
       </div>
 

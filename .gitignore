@@ -32,7 +32,9 @@
 npm-debug.log
 testem.log
 /typings
-info.log
+/logs/info.log
+/config/config-db.json
+export-snippets.jsos
 
 # e2e
 /e2e/*.js

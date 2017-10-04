@@ -119,7 +119,7 @@ module.exports.snippetsReadOne = function(req, res) {
     if (req.params && req.params.id) {
         Loc.mongooseModel
             .findOne({ id: req.params.id })
-            .select('id thema title method language lib codeSnippet link visible')
+            .select('id thema title method language lib codeSnippet link visible text')
             .exec(function(err, snippet) {
                 if (!snippet) {
                     sendJSONresponse(res, 404, {

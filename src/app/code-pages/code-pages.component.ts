@@ -24,6 +24,8 @@ export class CodePagesComponent implements OnInit, OnDestroy {
   rerender: boolean;
   componentDestroyed$: Subject<boolean> = new Subject();
   messageFirstParam: string;
+  previousUrl: string = '';
+  currentUrl: string;
 
   constructor(private snippetService: SnippetService, private route: ActivatedRoute,
       private router: Router, private cdRef: ChangeDetectorRef, private zone: NgZone) {
@@ -40,8 +42,6 @@ export class CodePagesComponent implements OnInit, OnDestroy {
         }
       });
     */
-
-
 
   }
 
@@ -74,8 +74,14 @@ export class CodePagesComponent implements OnInit, OnDestroy {
       .filter(data => data !== null)
       .takeUntil(this.componentDestroyed$)
       .subscribe(message => {
-          this.messageFirstParam = message;
-
+        this.messageFirstParam = message;
+        console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ');
+        console.log('QQQQQQQQQQQQQQQ code-pages.component.ts QQQQQQQQQQQQQQQ');
+        console.log('last url from service: ');
+        console.log(this.snippetService.lastUrl);
+        console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ');
+        console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ');
+        
         console.log('******************* this.messageFirstParam: ********************');
         console.log(this.messageFirstParam);
         console.log('****************************************************************');
@@ -97,8 +103,25 @@ export class CodePagesComponent implements OnInit, OnDestroy {
             this.param = this.snippetService.lastParam;
             console.log(this.param);
           }
-          this.router.navigateByUrl(this.router.url + '/' + this.param);
+          this.currentUrl = this.router.url + '/' + this.param;
+          console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ');
+          console.log('QQQQQQQQQQQQQQQ code-pages.component.ts QQQQQQQQQQQQQQQ');
+          console.log('this.currentUrl: ');
+          console.log(this.currentUrl);
+          console.log('this.snippetService.currentUrl: ');
+          console.log(this.snippetService.currentUrl);
+          console.log('this.snippetService.lastUrl: ');
+          console.log(this.snippetService.lastUrl);
+          console.log('this.router.url: ');
+          console.log(this.router.url);
+          console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ');
+          console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ');
+  
+            this.router.navigateByUrl(this.currentUrl/*, { replaceUrl: true }*/);
+            // this.snippetService.changeUrl(this.currentUrl);
+            // this.router.navigate([this.router.url + '/' + this.param], { replaceUrl: true });
         } else {
+
           console.log('D)');
           this.param = params['id'];
           this.snippetService.changeParam(this.param);
@@ -115,14 +138,9 @@ export class CodePagesComponent implements OnInit, OnDestroy {
             this.codeSnippet = snippet.codeSnippet;
             console.log("snippet: ");
             console.log(snippet);
-            console.log("this.aloneSnippet: ");
-            console.log(this.aloneSnippet);
-            console.log("this.aloneSnippet.title: ");
-            console.log(snippet.codeSnippet);
-  /*
-          this.snippetModel = new SnippetModelService(snippet.id, snippet.thema, snippet.title,
-            snippet.method, snippet.language, snippet.lib, snippet.codeSnippet, snippet.link);
-  */
+            // console.log("this.aloneSnippet: ");
+            // console.log(this.aloneSnippet);
+
             this.snippetModel = new SnippetModelService().deserialize(snippet);
             this.doRerender();
 
@@ -133,25 +151,24 @@ export class CodePagesComponent implements OnInit, OnDestroy {
             console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
 
             // Emergency code
-            // if a first url /code/ or /code/:id (/code/1.1.0.1) 
+            // if a first url /code/ or /code/:id (/code/1.1.0.1)
             // and a first page loaded then routerLinkActive don't add
             // a class "active-method-link"
-            console.log('TTTTTTTTTTTTTTTTTTT Emergency code TTTTTTTTTTTTTTTTTTTT');
+            // console.log('TTTTTTTTTTTTTTTTTTT Emergency code TTTTTTTTTTTTTTTTTTTT');
             let ar: any;
             ar = document.getElementsByClassName('id-' + this.param)[0];
-            console.log(ar);
+            // console.log(ar);
             if (this.router.isActive(this.router.url, true) && !ar.classList.contains('active-method-link')) {
               // alert('first');
               ar.className += ' active-method-link';
             }
             // ar[0].click();
             // document.getElementsByClassName('method-link')[0].click();
-            console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
+            // console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT');
 
 
           });
       // }
-
 
       }
     });

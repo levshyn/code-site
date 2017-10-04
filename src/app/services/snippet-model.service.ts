@@ -16,6 +16,7 @@ export class SnippetModelService implements Serializable<SnippetModelService> {
   codeSnippet: string;
   link: string;
   visible: string;
+  text: string;
 /*
   constructor(id: string, thema: string, title: string,
     method: string, language: string, lib: string,
@@ -34,10 +35,10 @@ export class SnippetModelService implements Serializable<SnippetModelService> {
   deserialize(input: any): SnippetModelService {
 
     // DEBUG
-    console.log('methode deserialize, input variable');
-    Object.keys(input).forEach(key => {
-      console.log(key + ': ' + input[key]);
-    });
+    // console.log('methode deserialize, input variable');
+    //Object.keys(input).forEach(key => {
+    //  console.log(key + ': ' + input[key]);
+    // });
 
 
     if (input.hasOwnProperty('id')) {
@@ -84,7 +85,12 @@ export class SnippetModelService implements Serializable<SnippetModelService> {
       this.visible = input.visible;
     } else {
       this.visible = '';
-    }  
+    }
+    if (input.hasOwnProperty('text')) {
+      this.text = input.text;
+    } else {
+      this.text = '';
+    }
 
     return this;
   }

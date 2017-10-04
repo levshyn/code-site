@@ -10,6 +10,8 @@ export class SnippetService {
   currentMessage = this.messageSource.asObservable();
 
   private _lastParam: string = '';
+  private _lastUrl: string = '';
+  private _currentUrl: string = '';
 
   constructor(private http: Http) { }
 
@@ -38,8 +40,22 @@ export class SnippetService {
     this._lastParam = param;
   }
 
+  changeUrl(url: string) {
+    console.log('snippet.service url: ' + url);
+    this._lastUrl = this._currentUrl;
+    this._currentUrl = url;
+  }
+
   get lastParam(): string {
     return this._lastParam;
+  }
+
+  get currentUrl(): string {
+    return this._currentUrl;
+  }
+
+  get lastUrl(): string {
+    return this._lastUrl;
   }
 
 }

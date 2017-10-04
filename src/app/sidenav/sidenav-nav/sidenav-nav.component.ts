@@ -29,9 +29,9 @@ export class SidenavNavComponent implements OnInit {
     this.snippetService.getAllSnippets(query)
       .subscribe(snippets => {
         this.snippets = snippets;
-        console.log("snippets: ");
-        console.log(snippets);
-        console.log('sideNavDeserilize() = ');
+        // console.log("snippets: ");
+        // console.log(snippets);
+        // console.log('sideNavDeserilize() = ');
         this.sideNavMenu = this.sideNavDeserilize(this.snippets);
         this.snippetService.changeMessage(this.snippets[0].id);
         // console.log(this.sideNavMenu);

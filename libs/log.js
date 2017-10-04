@@ -5,7 +5,6 @@ const ENV = process.env.NODE_ENV;
 console.log('ENV = ');
 console.log(ENV);
 
-
 function getLogger(module) {
     var path = module.filename.split('/').slice(-2).join('/'); //отобразим метку с именем файла, который выводит сообщение
 

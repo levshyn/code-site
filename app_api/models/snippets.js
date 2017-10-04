@@ -31,7 +31,9 @@ var snippetSchema = new mongoose.Schema({
     // a link to the example if it exists
     link: { type: String },
     // is a visible?
-    visible: { type: String, required: true }
+    visible: { type: String, required: true },
+    // text
+    text: { type: String, required: false }    
     // ToDo
     // , date : {}
 });
