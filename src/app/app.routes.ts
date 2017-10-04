@@ -5,13 +5,11 @@ import { CodePagesComponent } from './code-pages/code-pages.component';
 export const AppRoutes: Routes = [
   {
     path: 'home',
-    component: AboutComponent // ,
-    // data: { title: 'About Me' }
+    component: AboutComponent
   },
   {
     path: 'code/:id',
-    component: CodePagesComponent // ,
-    // data: { title: 'Code' }
+    component: CodePagesComponent
   },
   {
     path: 'code',

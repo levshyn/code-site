@@ -20,7 +20,6 @@ export class SidenavNavComponent implements OnInit {
   sideNavMenu: {};
   objectKeys = Object.keys;
   messageFirstParam: string;
-  // pages = [1, 2, 3, 4, 5];
 
   constructor(private snippetService: SnippetService, private sidenavService: MenuNavService,
       private router: Router) {
@@ -29,15 +28,11 @@ export class SidenavNavComponent implements OnInit {
     this.snippetService.getAllSnippets(query)
       .subscribe(snippets => {
         this.snippets = snippets;
-        // console.log("snippets: ");
-        // console.log(snippets);
-        // console.log('sideNavDeserilize() = ');
         this.sideNavMenu = this.sideNavDeserilize(this.snippets);
         this.snippetService.changeMessage(this.snippets[0].id);
         // console.log(this.sideNavMenu);
-      // this.snippetModel = new SnippetModelService().deserialize(snippet);
+        // this.snippetModel = new SnippetModelService().deserialize(snippet);
     });
-
 
     this.router.events.subscribe((val) => {
         if (val instanceof NavigationEnd) {
@@ -47,38 +42,27 @@ export class SidenavNavComponent implements OnInit {
         }
     });
 
-
    }
 
   ngOnInit() {
-    // this.sub = this.route.params.subscribe((params) =>{
-    //  this.event = this.eventService.getEvent(+params['id']);
-    // });
     this.snippetService.currentMessage.subscribe(message => this.messageFirstParam = message);
   }
 
   sideNavDeserilize(snippets: {}[]) {
     let sideNavMenu = {};
     let snippetMethod: SnippetMethodInterface = null;
-    // console.log('1) sideNavDeserilize() = ');
-    // console.log(snippets);
-    // console.log('2) sideNavDeserilize() = ');
     Object.keys(snippets).forEach(element => {
-      // console.log(element + ':');
-      // console.log(snippets[element]);
-      // console.log(snippets[element]['method']);
       if (!sideNavMenu.hasOwnProperty(snippets[element]['thema']))
         sideNavMenu[snippets[element]['thema']] = {};
       if (!sideNavMenu[snippets[element]['thema']].hasOwnProperty(snippets[element]['language'])) {
         sideNavMenu[snippets[element]['thema']][snippets[element]['language']] = {};
       }
-      // let temp = {}; // : SnippetMethodInterface;
       let method: string = snippets[element]['method'];
-      if (snippets[element]['lib'] != '')
+      if (snippets[element]['lib'] != '') {
         method += '-' + snippets[element]['lib'];
-      // temp[method] = snippets[element]['id'];
+      }
       sideNavMenu[snippets[element]['thema']][snippets[element]['language']][method] = snippets[element]['id'];
-/*
+    /*
       if (!sideNavMenu[snippets[element]['thema']].hasOwnProperty(snippets[element]['language'])) {
         sideNavMenu[snippets[element]['thema']][snippets[element]['language']] = [];
       }
@@ -88,10 +72,8 @@ export class SidenavNavComponent implements OnInit {
         method += '-' + snippets[element]['lib'];
       temp[method] = snippets[element]['id'];
       sideNavMenu[snippets[element]['thema']][snippets[element]['language']].push(temp);
-*/
-
+    */
     });
-
 
     return sideNavMenu;
   }

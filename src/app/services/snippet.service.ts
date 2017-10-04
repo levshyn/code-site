@@ -16,7 +16,7 @@ export class SnippetService {
   constructor(private http: Http) { }
 
   // Get all snippets from the API
-  getAllSnippets(query: string = '') {
+  getAllSnippets(query: string = ''): any {
     if (query != '') {
       query = '?' + query;
     }
@@ -25,22 +25,22 @@ export class SnippetService {
   }
 
   // Get code snippet by ID
-  getByIdSnippet(id: string) {
+  getByIdSnippet(id: string): any {
     return this.http.get('/api/snippets/' + id)
       .map(res => res.json());
   }
 
-  changeMessage(message: string) {
+  changeMessage(message: string): void {
       this.messageSource.next(message);
     console.log('SnippetService, changeMessage(): ');
     console.log(message);
   }
 
-  changeParam(param: string) {
+  changeParam(param: string): void {
     this._lastParam = param;
   }
 
-  changeUrl(url: string) {
+  changeUrl(url: string): void {
     console.log('snippet.service url: ' + url);
     this._lastUrl = this._currentUrl;
     this._currentUrl = url;

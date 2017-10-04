@@ -12,7 +12,6 @@ import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 export class SidenavComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MdSidenav;
 
-  // doShow: boolean;
   openFlag: boolean;
   modeFlag: string;
 

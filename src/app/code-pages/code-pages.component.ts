@@ -1,11 +1,9 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef, NgZone } from '@angular/core';
-
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-
 import { SnippetService } from '../services/snippet.service';
-
 import { SnippetModelService } from '../services/snippet-model.service';
 import 'rxjs/add/operator/takeUntil';
+import 'rxjs/add/operator/filter';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
@@ -138,8 +136,6 @@ export class CodePagesComponent implements OnInit, OnDestroy {
             this.codeSnippet = snippet.codeSnippet;
             console.log("snippet: ");
             console.log(snippet);
-            // console.log("this.aloneSnippet: ");
-            // console.log(this.aloneSnippet);
 
             this.snippetModel = new SnippetModelService().deserialize(snippet);
             this.doRerender();

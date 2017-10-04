@@ -1,47 +1,94 @@
-<nav class="sidenav-nav">
-    <h3>Title</h3>
-    <ul>
-        <!-- -->
-        <!-- li>
-            <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/component/autocomplete" class="docs-component-viewer-sidenav-item-selected">
-                      Autocomplete
-                  </a>
-      </li -->
+<nav *ngIf="sideNavMenu" class="sidenav-nav">
+    <ul *ngFor="let key1 of objectKeys(sideNavMenu)">
+      <h3 class="thema-title">{{ key1 }}</h3>
         <li>
-            <a [routerLink]="['code', '1.1.0.1']" routerLinkActive="active" class="dont cclick on route">
-                    Javascript 1.1.0.1
+            <ul *ngFor="let key2 of objectKeys(sideNavMenu[key1])">
+              <li>
+                <a class="language-titel">
+                  {{ key2 }}
                 </a>
-        </li>
-        <li>
-            <a [routerLink]="['code', '1.1.0.2']" routerLinkActive="active" class="docs-component-viewer-sidenav-item-selected">
-                  Javascript 1.1.0.2
-              </a>
-        </li>
-        <li>
-            <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/code/1.1.0.1">
-                    Datepicker
-                  </a>
-        </li>
-        <li>
-            <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/code/1.1.0.2">
-                    Input
-                  </a>
-        </li>
-        <li>
-            <a [routerLink]="['home']" routerLinkActive="active">
-                Home
-            </a>
-        </li>
-        <li>
-            <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/component/radio">
-                    Radio button
-                  </a>
-        </li>
-        <li>
-            <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/component/select">
-                    Select
-                  </a>
+                <ul *ngFor="let key3 of objectKeys(sideNavMenu[key1][key2])">
+                  <li>
+                      <a [routerLink]="['code', sideNavMenu[key1][key2][key3]]" routerLinkActive="active-method-link" (click)="closeSidenav()" class="id-{{ sideNavMenu[key1][key2][key3] }} method-link">
+                      <!-- a [routerLink]="['code', sideNavMenu[key1][key2][key3]]" routerLinkActive #rla="routerLinkActive" (click)="closeSidenav()" class="id-{{ sideNavMenu[key1][key2][key3] }} method-link" -->
+                        {{ key3 }}
+                        <!-- {{ key3 }} - {{ rla.isActive ? '(already open)' : ''}} -->
+                      </a>
+                    </li>
+                </ul>
+              </li>
+            </ul>
         </li>
     </ul>
-
 </nav>
+
+
+<!-- nav *ngIf="sideNavMenu" class="sidenav-nav">
+    <div *ngFor="let key1 of objectKeys(sideNavMenu)">
+        <h3 class="thema-title">{{ key1 }}</h3>
+        <ng2-dropdown *ngFor="let key2 of objectKeys(sideNavMenu[key1])">
+                <ng2-dropdown-button class="language-button">
+                    {{ key2 }}
+                </ng2-dropdown-button>
+                <ng2-dropdown-menu>
+                    <ng2-menu-item *ngFor="let key3 of objectKeys(sideNavMenu[key1][key2])">
+                        <div [routerLink]="['code', sideNavMenu[key1][key2][key3]]" routerLinkActive="active" class="method-link">
+                          {{ key3 }}
+                        </div>
+                        <div class='ng2-menu-divider'></div>
+                    </ng2-menu-item>
+                </ng2-dropdown-menu>
+        </ng2-dropdown>
+    </div>
+</nav -->
+
+<!-- ng2-dropdown>
+    <ng2-dropdown-button>
+        Open Menu
+    </ng2-dropdown-button>
+    <ng2-dropdown-menu>
+        <ng2-menu-item *ngFor="let page of pages">
+            {{ page }}
+        </ng2-menu-item>
+ 
+        <div class='ng2-menu-divider'></div>
+ 
+        <ng2-menu-item>
+            With Divider
+        </ng2-menu-item>
+    </ng2-dropdown-menu>
+</ng2-dropdown -->
+
+<!-- md-sidenav-container fullscreen>
+    <md-sidenav mode="over" #sidenav>
+
+        <div fxLayout="column">
+            <md-toolbar fxLayoutAlign="center center" color="primary">
+                <button md-button routerLink="/home" (click)="sidenav.close()">
+                <md-icon>home</md-icon>
+            </button>
+            </md-toolbar>
+            <button md-button routerLink="/dashboard" (click)="sidenav.close()">Dashboard</button>
+            <button md-button routerLink="/second" (click)="sidenav.close()">Second</button>
+        </div>
+
+    </md-sidenav>
+
+    <div>
+        <md-toolbar color="primary">
+
+            <button md-button (click)="sidenav.open()" fxHide="false" fxHide.gt-sm>
+                  <md-icon>menu</md-icon>
+          </button>
+
+            <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+                <button color="accent" md-button routerLink="/home">
+                <md-icon>home</md-icon>
+            </button>
+                <button color="accent" md-button routerLink="/dashboard">Dashboard</button>
+                <button color="accent" md-button routerLink="/second">Second</button>
+            </div>
+
+        </md-toolbar>
+    </div>
+</md-sidenav-container -->

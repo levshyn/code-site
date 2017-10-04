@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MenuNavService } from '../services/menu-nav.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { SnippetService } from '../services/snippet.service';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-top-menu',
   templateUrl: './top-menu.component.html',
-  styleUrls: ['./top-menu.component.css']
+  styleUrls: ['./top-menu.component.scss']
 })
 
 export class TopMenuComponent implements OnInit {

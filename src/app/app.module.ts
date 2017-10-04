@@ -14,29 +14,19 @@ import { AppRoutes } from './app.routes';
 import { MyMaterialModule } from './app.material.modules';
 // Load hammerJS
 import 'hammerjs';
-
 // import FlexLayoutModule for angular/flex
-import { FlexLayoutModule } from "@angular/flex-layout";
-
-// import directive for highlight of code in html
-import { HighlightCodeDirective } from './code-pages/code-pages.directives';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { SidenavNavComponent } from './sidenav/sidenav-nav/sidenav-nav.component';
-
 /* Import prism core */
 import 'prismjs/prism';
 /* Import the language you need to highlight */
 import 'prismjs/components/prism-javascript';
 import { PrismComponent } from 'angular-prism';
-
-
 // import snippets service
 import { SnippetService } from './services/snippet.service';
-
 // import snippet model
 import { SnippetModelService } from './services/snippet-model.service';
-
 // import menu navigation service
 import { MenuNavService } from './services/menu-nav.service';
 
@@ -46,7 +36,6 @@ import { MenuNavService } from './services/menu-nav.service';
     AboutComponent,
     TopMenuComponent,
     CodePagesComponent,
-    HighlightCodeDirective,
     SidenavComponent,
     SidenavNavComponent,
     PrismComponent
@@ -62,7 +51,7 @@ import { MenuNavService } from './services/menu-nav.service';
     ),
     BrowserAnimationsModule,
     MyMaterialModule,
-    FlexLayoutModule // FlexLayoutModule.forRoot()
+    FlexLayoutModule
   ],
   providers: [SnippetService, // Add the snippets service
     SnippetModelService, // Add the snippet model

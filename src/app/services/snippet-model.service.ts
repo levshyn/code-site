@@ -6,7 +6,6 @@ interface Serializable<T> {
 
 @Injectable()
 export class SnippetModelService implements Serializable<SnippetModelService> {
-// export class SnippetModelService {
   id: string;
   thema: string;
   title: string;
