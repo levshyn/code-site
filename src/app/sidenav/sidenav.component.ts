@@ -1,24 +1,29 @@
-import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild,
+  OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 import { MdSidenav } from '@angular/material';
 import { MenuNavService } from '../services/menu-nav.service';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+import 'rxjs/add/operator/takeUntil';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-component-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent implements OnInit, OnDestroy {
   @ViewChild('sidenav') public sidenav: MdSidenav;
 
   openFlag: boolean;
   modeFlag: string;
+  componentDestroyed$: Subject<boolean> = new Subject();
 
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
      private cdRef: ChangeDetectorRef, private sidenavService: MenuNavService,
      media: ObservableMedia) {
       media.asObservable()
+      .takeUntil(this.componentDestroyed$)
       .subscribe((change: MediaChange) => {
         console.log('change.mqAlias = ' + change.mqAlias);
         // if a screen size more less 600px (@angular/flex-layout static API, breakpoint xs)
@@ -63,5 +68,9 @@ export class SidenavComponent implements OnInit {
     */
   }
 
+  ngOnDestroy() {
+      this.componentDestroyed$.next(true);
+      this.componentDestroyed$.complete();
+  }
 
 }

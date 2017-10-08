@@ -1,11 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ElementRef, Renderer2 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { SnippetService } from '../../services/snippet.service';
 import { MenuNavService } from '../../services/menu-nav.service';
+import 'rxjs/add/operator/takeUntil';
+import { Subject } from 'rxjs/Subject';
 
-interface SnippetMethodInterface {
-  [key: string]: string;
+interface MenuInterface {
+  [key: string]: any;
 }
 
 @Component({
@@ -14,65 +16,53 @@ interface SnippetMethodInterface {
   styleUrls: ['./sidenav-nav.component.scss']
 })
 
-export class SidenavNavComponent implements OnInit {
+export class SidenavNavComponent implements OnInit, OnDestroy {
   @Input() mode: string;
-  snippets: any; //{}[];
-  sideNavMenu: {};
+  snippets: Array<any>;
+  sideNavMenu: MenuInterface;
   objectKeys = Object.keys;
   messageFirstParam: string;
+  componentDestroyed$: Subject<boolean> = new Subject();
 
   constructor(private snippetService: SnippetService, private sidenavService: MenuNavService,
-      private router: Router) {
+      private router: Router, renderer: Renderer2, private _elementRef: ElementRef) {
     let query: string = 'visible=yes';
 
     this.snippetService.getAllSnippets(query)
+      .takeUntil(this.componentDestroyed$)
       .subscribe(snippets => {
         this.snippets = snippets;
         this.sideNavMenu = this.sideNavDeserilize(this.snippets);
         this.snippetService.changeMessage(this.snippets[0].id);
-        // console.log(this.sideNavMenu);
-        // this.snippetModel = new SnippetModelService().deserialize(snippet);
     });
-
-    this.router.events.subscribe((val) => {
-        if (val instanceof NavigationEnd) {
-          console.log('**************** sidenav-nav.component.ts ********************');
-          console.log(val.url);
-          console.log('************************************');
-        }
-    });
-
    }
 
   ngOnInit() {
-    this.snippetService.currentMessage.subscribe(message => this.messageFirstParam = message);
   }
 
-  sideNavDeserilize(snippets: {}[]) {
-    let sideNavMenu = {};
-    let snippetMethod: SnippetMethodInterface = null;
+  sideNavDeserilize(snippets: Array<any>) {
+    let sideNavMenu : MenuInterface = {};
+    console.log('sideNavMenu = ');
+    console.log(sideNavMenu);
+    // let snippetMethod: SnippetMethodInterface = null;
     Object.keys(snippets).forEach(element => {
-      if (!sideNavMenu.hasOwnProperty(snippets[element]['thema']))
-        sideNavMenu[snippets[element]['thema']] = {};
-      if (!sideNavMenu[snippets[element]['thema']].hasOwnProperty(snippets[element]['language'])) {
-        sideNavMenu[snippets[element]['thema']][snippets[element]['language']] = {};
+      let thema: string = snippets[element]['thema'];
+      thema = thema.toLowerCase();
+      if (!sideNavMenu.hasOwnProperty(thema)) {
+        sideNavMenu[thema] = {};
+      }
+      let language: string = snippets[element]['language'];
+      language = language.toLowerCase();
+      if (!sideNavMenu[thema].hasOwnProperty(language)) {
+        sideNavMenu[thema][language] = {};
       }
       let method: string = snippets[element]['method'];
       if (snippets[element]['lib'] != '') {
-        method += '-' + snippets[element]['lib'];
+        let lib: string = snippets[element]['lib'];
+        lib = lib.toLowerCase();
+        method += '-' + lib;
       }
-      sideNavMenu[snippets[element]['thema']][snippets[element]['language']][method] = snippets[element]['id'];
-    /*
-      if (!sideNavMenu[snippets[element]['thema']].hasOwnProperty(snippets[element]['language'])) {
-        sideNavMenu[snippets[element]['thema']][snippets[element]['language']] = [];
-      }
-      let temp = {}; // : SnippetMethodInterface;
-      let method: string = snippets[element]['method'];
-      if (snippets[element]['lib'] != '')
-        method += '-' + snippets[element]['lib'];
-      temp[method] = snippets[element]['id'];
-      sideNavMenu[snippets[element]['thema']][snippets[element]['language']].push(temp);
-    */
+      sideNavMenu[thema][language][method] = snippets[element]['id'];
     });
 
     return sideNavMenu;
@@ -81,6 +71,15 @@ export class SidenavNavComponent implements OnInit {
   public closeSidenav() {
     if (this.mode === 'over')
       this.sidenavService.close();
+  }
+
+  ngOnDestroy() {
+      this.componentDestroyed$.next(true);
+      this.componentDestroyed$.complete();
+  }
+
+  ngAfterViewInit() {
+    this.snippetService.changeSideNavEl(this._elementRef);
   }
 
 }

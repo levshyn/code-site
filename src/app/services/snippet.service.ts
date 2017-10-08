@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -8,6 +8,10 @@ export class SnippetService {
 
   private messageSource = new BehaviorSubject<string>(null);
   currentMessage = this.messageSource.asObservable();
+
+  private sideNavElSource = new BehaviorSubject<ElementRef>(null);
+  currentSideNavEl$ = this.sideNavElSource.asObservable();
+
 
   private _lastParam: string = '';
   private _lastUrl: string = '';
@@ -31,9 +35,13 @@ export class SnippetService {
   }
 
   changeMessage(message: string): void {
-      this.messageSource.next(message);
+    this.messageSource.next(message);
     console.log('SnippetService, changeMessage(): ');
     console.log(message);
+  }
+
+  changeSideNavEl(elementRef: ElementRef): void {
+    this.sideNavElSource.next(elementRef);
   }
 
   changeParam(param: string): void {
@@ -41,7 +49,6 @@ export class SnippetService {
   }
 
   changeUrl(url: string): void {
-    console.log('snippet.service url: ' + url);
     this._lastUrl = this._currentUrl;
     this._currentUrl = url;
   }

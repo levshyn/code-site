@@ -25,8 +25,8 @@ var readLine = require ("readline");
 var gracefulShutdown;
 
 // Define database connection string and use it to open Mongoose connection
-// var dbURI = 'mongodb://localhost/Loc8r';
-var dbURI = configDb.url;
+var dbURI = 'mongodb://localhost/Loc8r';
+// var dbURI = configDb.url;
 
 mongoose.connect(dbURI);
 
@@ -84,7 +84,7 @@ mongoose.connection.on('connected', function () {
     log.info('Mongoose connected to %s', dbURI);
     // console.log('Mongoose connected to %s', dbURI);
 });
-mongoose.connection.on('error',function (err) {
+mongoose.connection.on('error', function (err) {
     log.error('Mongoose connection error: %s', err);
     // console.log('Mongoose connection error: %s', err);
 });

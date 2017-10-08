@@ -16,9 +16,8 @@ module.exports.locationsCreate = function(req, res) {
 module.exports.snippetsList = function(req, res) {
     console.log('Finding code snippets details, req.params', req.params);
     console.log('req.query', req.query);
-
+    let query = {};
     if (req.query) {
-      let query = {};
       Object.keys(req.query).forEach(keyQuery => {
         // Try-catch surrounds the loop to allow throwing the breakException as an equivalent
         // for breaking out of the loop.
@@ -41,19 +40,13 @@ module.exports.snippetsList = function(req, res) {
       });
       console.log('query after forEach:');
       console.log(query);
-      Loc.mongooseModel
-          .find(query)
-          .exec(function(err, snippet) {
-              sendJSONresponse(res, 200, snippet);
-          });
-
-    } else {    
-        Loc.mongooseModel
-            .find()
-            .exec(function(err, snippet) {
-                sendJSONresponse(res, 200, snippet);
-            });
     }
+      
+    Loc.mongooseModel
+        .find(query)
+        .exec(function(err, snippet) {
+            sendJSONresponse(res, 200, snippet);
+        });
 };
 
 /* GET a location by the id */

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MenuNavService } from '../services/menu-nav.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { SnippetService } from '../services/snippet.service';
+import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/filter';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-top-menu',
@@ -10,24 +12,20 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./top-menu.component.scss']
 })
 
-export class TopMenuComponent implements OnInit {
+export class TopMenuComponent implements OnInit, OnDestroy {
 
   private previousUrl: string;
+  componentDestroyed$: Subject<boolean> = new Subject();
 
   constructor(private sidenavService: MenuNavService, private snippetService: SnippetService,
     private router: Router) {
 
     router.events
     .filter(event => event instanceof NavigationEnd)
+    .takeUntil(this.componentDestroyed$)
     .subscribe((e: any) => {
-      console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE');
-      console.log('EEEEEEEEEEEEEE top-menu.component.ts EEEEEEEEEEEEEEEEEEEEEE');
-      console.log('prev:', this.previousUrl);
-      console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE');
-      console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE');
       this.previousUrl = e.url;
       this.snippetService.changeUrl(e.url);
-
     });
 
    }
@@ -40,6 +38,11 @@ export class TopMenuComponent implements OnInit {
       .toggle()
       .then(() => {
       });
+  }
+
+  ngOnDestroy() {
+      this.componentDestroyed$.next(true);
+      this.componentDestroyed$.complete();
   }
 
 }
