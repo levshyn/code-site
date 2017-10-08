@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ElementRef } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { SnippetService } from '../../services/snippet.service';
@@ -25,7 +25,7 @@ export class SidenavNavComponent implements OnInit, OnDestroy {
   componentDestroyed$: Subject<boolean> = new Subject();
 
   constructor(private snippetService: SnippetService, private sidenavService: MenuNavService,
-      private router: Router, renderer: Renderer2, private _elementRef: ElementRef) {
+      private router: Router, private _elementRef: ElementRef) {
     let query: string = 'visible=yes';
 
     this.snippetService.getAllSnippets(query)
