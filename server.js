@@ -8,8 +8,6 @@ const log = require('./libs/log')(module);
 // Config
 const config = require('./config/config');
 
-// Get our API routes
-const api = require('./server/routes/api');
 // Get the API routes (Getting MEAN with Mongo, Express, Angular and Node. Chapter 6. Writing a REST API: Exposing the MongoDB database to the application, page 167)
 const routesApi = require('./app_api/routes/index');
 
