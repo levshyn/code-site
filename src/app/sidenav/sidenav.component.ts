@@ -29,6 +29,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
         // if a screen size more less 600px (@angular/flex-layout static API, breakpoint xs)
         // side nav is invisible by default
         if (change.mqAlias == 'lg' || change.mqAlias == 'xl' || change.mqAlias == 'md' || change.mqAlias == 'sm') {
+        // if (change.mqAlias == 'lg' || change.mqAlias == 'xl' || change.mqAlias == 'md') {
           this.openFlag = true;
           this.modeFlag = 'side';
         }

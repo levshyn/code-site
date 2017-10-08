@@ -4,7 +4,7 @@ article {
 }
 
 .l-content-small {
-    padding: 24px 32px;
+    padding: 16px 32px;
     max-width: 1100px;
     margin: 0;
 }
@@ -15,4 +15,10 @@ article {
 
 .docs-content {
     position: relative;
+}
+
+@media screen and (max-width: 599px) {
+    .l-content-small {
+      padding: 16px;
+    }
 }
