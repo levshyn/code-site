@@ -36,8 +36,6 @@ export class SnippetService {
 
   changeMessage(message: string): void {
     this.messageSource.next(message);
-    console.log('SnippetService, changeMessage(): ');
-    console.log(message);
   }
 
   changeSideNavEl(elementRef: ElementRef): void {

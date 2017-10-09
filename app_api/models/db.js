@@ -25,8 +25,8 @@ var readLine = require ("readline");
 var gracefulShutdown;
 
 // Define database connection string and use it to open Mongoose connection
-var dbURI = 'mongodb://localhost/Loc8r';
-// var dbURI = configDb.url;
+// var dbURI = 'mongodb://localhost/Loc8r';
+var dbURI = configDb.url;
 
 mongoose.connect(dbURI);
 

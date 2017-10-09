@@ -42,8 +42,6 @@ export class SidenavNavComponent implements OnInit, OnDestroy {
 
   sideNavDeserilize(snippets: Array<any>) {
     let sideNavMenu : MenuInterface = {};
-    console.log('sideNavMenu = ');
-    console.log(sideNavMenu);
     // let snippetMethod: SnippetMethodInterface = null;
     Object.keys(snippets).forEach(element => {
       let thema: string = snippets[element]['thema'];
