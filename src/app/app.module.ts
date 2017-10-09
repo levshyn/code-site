@@ -46,8 +46,8 @@ import { MenuNavService } from './services/menu-nav.service';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(
-      AppRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      AppRoutes /*,
+      { enableTracing: true }*/ // <-- debugging purposes only
     ),
     BrowserAnimationsModule,
     MyMaterialModule,
