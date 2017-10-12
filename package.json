@@ -45,7 +45,7 @@
         "uglify-js": "^3.1.2",
         "winston": "^2.3.1",
         "zone.js": "^0.8.14",
-        "typescript": "~2.3.3"
+        "typescript": "~2.5.3"
     },
     "devDependencies": {
         "@angular/language-service": "^4.2.4",
