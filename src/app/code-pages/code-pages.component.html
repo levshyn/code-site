@@ -1,27 +1,27 @@
 <div *ngIf="snippetModel" class="code-page-layout">
-  <header class="code background-sky">
-      <h1 class="title ">{{ snippetModel.thema }}</h1>
-      <div class="clear"></div>
-      <h2 class="subtitle">{{ snippetModel.title }}</h2>
-  </header>
+    <header class="code background-sky">
+        <h1 class="title ">{{ snippetModel.thema }}</h1>
+        <div class="clear"></div>
+        <h2 class="subtitle">{{ snippetModel.title }}</h2>
+    </header>
 
-  <article class="l-content-small grid-fluid docs-content">
+    <article class="l-content-small grid-fluid docs-content">
 
-      <div class="article-text">
-        <p>
-          {{ snippetModel.text  }}
-        </p>
-      </div>
+        <div class="article-text">
+            <p>
+                {{ snippetModel.text }}
+            </p>
+        </div>
 
-      <div class="code-example">
-          <header>
-              <h4>Function loadDoc()</h4>
-          </header>
+        <div class="code-example">
+            <header>
+                <h4>Function loadDoc()</h4>
+            </header>
 
-          <ng-container class="temp-class" *ngIf="!rerender">
-              <prism-block id="code-snippet" [code]="snippetModel.codeSnippet" [language]="'javascript'">{{ snippetModel.codeSnippet }}</prism-block>
-          </ng-container>
-      </div>
+            <ng-container class="temp-class" *ngIf="!rerender">
+                <!-- prism-block id="code-snippet" [code]="snippetModel.codeSnippet" [language]="'javascript'">{{ snippetModel.codeSnippet }}</prism-block -->
+            </ng-container>
+        </div>
 
-  </article>
+    </article>
 </div>
