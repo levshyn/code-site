@@ -9,7 +9,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "postinstall": "ng build --target=production"
+        "postinstall": "ng build serve --e=dev -t=production"
     },
     "private": true,
     "engines": {
