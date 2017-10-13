@@ -22,7 +22,7 @@ import { SidenavNavComponent } from './sidenav/sidenav-nav/sidenav-nav.component
 import 'prismjs/prism';
 /* Import the language you need to highlight */
 import 'prismjs/components/prism-javascript';
-import { PrismComponent } from 'angular-prism';
+// import { PrismComponent } from 'angular-prism';
 // import snippets service
 import { SnippetService } from './services/snippet.service';
 // import snippet model
@@ -38,7 +38,7 @@ import { MenuNavService } from './services/menu-nav.service';
     CodePagesComponent,
     SidenavComponent,
     SidenavNavComponent,
-    PrismComponent
+    // PrismComponent
 
   ],
   imports: [
