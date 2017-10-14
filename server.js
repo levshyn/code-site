@@ -56,7 +56,7 @@ app.get('/ErrorExample', function(req, res, next) {
 /**
  * Get port from environment and store in Express.
  */
-const port = process.env.PORT || config.get('port'); //'3000';
+const port = process.env.PORT || config.get('port'); //'8080';
 app.set('port', port);
 
 /**
