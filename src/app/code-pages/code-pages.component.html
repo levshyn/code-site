@@ -19,7 +19,7 @@
             </header>
 
             <ng-container class="temp-class" *ngIf="!rerender">
-                <!-- prism-block id="code-snippet" [code]="snippetModel.codeSnippet" [language]="'javascript'">{{ snippetModel.codeSnippet }}</prism-block -->
+                <prism-block id="code-snippet" [code]="snippetModel.codeSnippet" [language]="'javascript'">{{ snippetModel.codeSnippet }}</prism-block>
             </ng-container>
         </div>
 
