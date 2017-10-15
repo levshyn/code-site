@@ -5,11 +5,11 @@
     "scripts": {
         "ng": "ng",
         "start": "node server.js",
-        "build": "set NODE_ENV=development && ng build serve --host 192.168.1.129 && node server.js",
+        "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "postinstall": "ng build serve --e=dev -t=production"
+        "postinstall": "ng build"
     },
     "private": true,
     "engines": {

@@ -22,8 +22,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.use(express.logger('dev'));
 
-// Point static path to dist
-app.use(express.static(path.join(__dirname, 'dist')));
+// Create link to Angular build directory
+const distDir = __dirname + '/dist/';
+app.use(express.static(distDir));
 
 // Set our api routes
 // app.use('/api', api);
@@ -31,7 +32,7 @@ app.use('/api', routesApi);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
+    res.sendFile(path.join(distDir, 'index.html'));
 });
 
 // Error handling
