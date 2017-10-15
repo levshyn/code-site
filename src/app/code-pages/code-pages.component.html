@@ -18,9 +18,9 @@
                 <h4>Function loadDoc()</h4>
             </header>
 
-            <ng-container class="temp-class" *ngIf="!rerender">
-                <prism-block id="code-snippet" [code]="snippetModel.codeSnippet" [language]="'javascript'">{{ snippetModel.codeSnippet }}</prism-block>
-            </ng-container>
+            <!-- ng-container class="temp-class" *ngIf="!rerender" -->
+                <prism-block *ngIf="!rerender" id="code-snippet" [code]="snippetModel.codeSnippet" [language]="'javascript'">{{ snippetModel.codeSnippet }}</prism-block>
+            <!-- /ng-container -->
         </div>
 
     </article>
