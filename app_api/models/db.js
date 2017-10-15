@@ -32,8 +32,8 @@ mongoose.connect(dbURI);
 
 // Listening for SIGINT on Windows
 if (process.platform === "win32"){
-    // console.log(`This platform is ${process.platform}`);
-    log.info('Application running on %s', process.platform);
+    console.log(`This platform is ${process.platform}`);
+    // log.info('Application running on %s', process.platform);
     var rl = readLine.createInterface ({
         input: process.stdin,
         output: process.stdout
@@ -81,16 +81,16 @@ process.on('SIGTERM', function() {
 
 // Listen for Mongoose connection events and output statuses to console (log)
 mongoose.connection.on('connected', function () {
-    log.info('Mongoose connected to %s', dbURI);
-    // console.log('Mongoose connected to %s', dbURI);
+    // log.info('Mongoose connected to %s', dbURI);
+    console.log('Mongoose connected to %s', dbURI);
 });
 mongoose.connection.on('error', function (err) {
-    log.error('Mongoose connection error: %s', err);
-    // console.log('Mongoose connection error: %s', err);
+    // log.error('Mongoose connection error: %s', err);
+    console.log('Mongoose connection error: %s', err);
 });
 mongoose.connection.on('disconnected', function () {
-    log.info('Mongoose disconnected');
-    // console.log('Mongoose disconnected');
+    // log.info('Mongoose disconnected');
+    console.log('Mongoose disconnected');
 });
 
 require('./snippets');

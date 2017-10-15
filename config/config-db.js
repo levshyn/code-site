@@ -22,7 +22,8 @@ try {
     url = 'mongodb://' + obj.accountDb + ':' + obj.passwordDb +
     '@' + obj.urlDb + ':' + obj.portDb + '/' + obj.nameDb;
 } catch (err) {
-    log.error(err.message);
+  // log.error(err.message);
+  console.log(err.message);
 }
 
 module.exports = {

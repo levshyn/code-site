@@ -45,7 +45,8 @@ app.use(function(req, res, next) {
 
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    log.error('Internal error(%d): %s', res.statusCode, err.message);
+    // log.error('Internal error(%d): %s', res.statusCode, err.message);    
+    console.log('Internal error(%d): %s', res.statusCode, err.message);
     res.send({ error: err.message });
     return;
 });
@@ -68,5 +69,5 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-// server.listen(port, () => console.log(`API running on localhost:${port}`));
-server.listen(port, () => log.info(`API running on localhost:${port}`));
+server.listen(port, () => console.log(`API running on port:${port}`));
+// server.listen(port, () => log.info(`API running on localhost:${port}`));
