@@ -1,5 +1,5 @@
 .code-page-layout {
-  min-height: 100%;
+    min-height: 100%;
 }
 
 .l-content-small {
@@ -80,6 +80,10 @@ pre {
 
 @media screen and (max-width: 599px) {
     .l-content-small {
-      padding: 16px;
+        padding: 16px;
     }
+}
+
+pre[class*=language-] {
+    box-shadow: 0 0 0 0 #358ccb, 0 0 0 0 #dfdfdf;
 }
