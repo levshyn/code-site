@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 const log = require('../../libs/log')(module);
 
 // config for db
-// const configDb = require('../../config/config-db');
+const configDb = require('../../config/config-db');
 /*
 const configDb = require('../../config/config-db').initialize(function (err, data) {
   if (err) {
@@ -26,8 +26,8 @@ var gracefulShutdown;
 
 // Define database connection string and use it to open Mongoose connection
 // var dbURI = 'mongodb://localhost/Loc8r';
-// var dbURI = configDb.url;
-var dbURI = process.env.MONGODB_URI;
+var dbURI = configDb.url;
+// var dbURI = process.env.MONGODB_URI;
 
 mongoose.connect(dbURI);
 

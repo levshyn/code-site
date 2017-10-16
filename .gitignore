@@ -33,7 +33,7 @@ npm-debug.log
 testem.log
 /typings
 /logs/info.log
-/config/config-db.json
+# /config/config-db.json
 /config/config-db.json.back
 export-snippets.jsos
 
