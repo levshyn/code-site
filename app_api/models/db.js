@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 const log = require('../../libs/log')(module);
 
 // config for db
-const configDb = require('../../config/config-db');
+// const configDb = require('../../config/config-db');
 /*
 const configDb = require('../../config/config-db').initialize(function (err, data) {
   if (err) {
