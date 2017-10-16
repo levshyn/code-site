@@ -18,30 +18,30 @@ module.exports.snippetsList = function(req, res) {
     console.log('req.query', req.query);
     let query = {};
     if (req.query) {
-      Object.keys(req.query).forEach(keyQuery => {
-        // Try-catch surrounds the loop to allow throwing the breakException as an equivalent
-        // for breaking out of the loop.
-        let breakException = {};
-        try {
-          // Loc.mongooseModel.schema.paths - properties of snippetSchema from ../models/snippets
-          Object.keys(Loc.mongooseModel.schema.paths).forEach(keySchema => {
-            if (keySchema == keyQuery) {
-              query[keyQuery] = req.query[keyQuery];
-              // console.log(keyQuery + ':' + req.query[keyQuery]);
-              throw breakException;
-            };
-          });
+        Object.keys(req.query).forEach(keyQuery => {
+            // Try-catch surrounds the loop to allow throwing the breakException as an equivalent
+            // for breaking out of the loop.
+            let breakException = {};
+            try {
+                // Loc.mongooseModel.schema.paths - properties of snippetSchema from ../models/snippets
+                Object.keys(Loc.mongooseModel.schema.paths).forEach(keySchema => {
+                    if (keySchema == keyQuery) {
+                        query[keyQuery] = req.query[keyQuery];
+                        // console.log(keyQuery + ':' + req.query[keyQuery]);
+                        throw breakException;
+                    };
+                });
 
-        } catch (error) {
-            // If the error thrown was not the breakException, allow the error to continue up the
-            // stack.
-            if (error !== breakException) throw error;      
-        }
-      });
-      console.log('query after forEach:');
-      console.log(query);
+            } catch (error) {
+                // If the error thrown was not the breakException, allow the error to continue up the
+                // stack.
+                if (error !== breakException) throw error;
+            }
+        });
+        console.log('query after forEach:');
+        console.log(query);
     }
-      
+
     Loc.mongooseModel
         .find(query)
         .exec(function(err, snippet) {
@@ -112,7 +112,7 @@ module.exports.snippetsReadOne = function(req, res) {
     if (req.params && req.params.id) {
         Loc.mongooseModel
             .findOne({ id: req.params.id })
-            .select('id thema title method language lib codeSnippet link visible text')
+            .select('id thema title method language lib codeSnippet link visible text codeTitle')
             .exec(function(err, snippet) {
                 if (!snippet) {
                     sendJSONresponse(res, 404, {

@@ -16,6 +16,7 @@ export class SnippetModelService implements Serializable<SnippetModelService> {
   link: string;
   visible: string;
   text: string;
+  codeTitle: string;
 /*
   constructor(id: string, thema: string, title: string,
     method: string, language: string, lib: string,
@@ -35,7 +36,7 @@ export class SnippetModelService implements Serializable<SnippetModelService> {
 
     // DEBUG
     // console.log('methode deserialize, input variable');
-    //Object.keys(input).forEach(key => {
+    // Object.keys(input).forEach(key => {
     //  console.log(key + ': ' + input[key]);
     // });
 
@@ -49,32 +50,32 @@ export class SnippetModelService implements Serializable<SnippetModelService> {
       this.thema = input.thema;
     } else {
       this.thema = '';
-    }  
+    }
     if (input.hasOwnProperty('title')) {
       this.title = input.title;
     } else {
       this.title = '';
-    }  
+    }
     if (input.hasOwnProperty('method')) {
       this.method = input.method;
     } else {
       this.method = '';
-    }  
+    }
     if (input.hasOwnProperty('language')) {
       this.language = input.language;
     } else {
       this.language = '';
-    }  
+    }
     if (input.hasOwnProperty('lib')) {
       this.lib = input.lib;
     } else {
       this.lib = '';
-    }  
+    }
     if (input.hasOwnProperty('codeSnippet')) {
       this.codeSnippet = input.codeSnippet;
     } else {
       this.codeSnippet = '';
-    }  
+    }
     if (input.hasOwnProperty('link')) {
       this.link = input.link;
     } else {
@@ -89,6 +90,11 @@ export class SnippetModelService implements Serializable<SnippetModelService> {
       this.text = input.text;
     } else {
       this.text = '';
+    }
+    if (input.hasOwnProperty('codeTitle')) {
+      this.codeTitle = input.codeTitle;
+    } else {
+      this.codeTitle = '';
     }
 
     return this;

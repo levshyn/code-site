@@ -1,3 +1,4 @@
+// sidenav-content
 .mat-sidenav-container {
     position: relative;
     // top: -2px;
@@ -31,5 +32,8 @@
         bottom: 0;
         overflow: auto;
         background-color: #fff;
+    }
+    .sidenav-content {
+        margin: 0 0 30px 0;
     }
 }

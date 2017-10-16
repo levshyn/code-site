@@ -12,16 +12,17 @@
                 {{ snippetModel.text }}
             </p>
         </div>
-
         <div class="code-example">
             <header>
-                <h4>Function loadDoc()</h4>
+                <h4>{{ snippetModel.codeTitle }}</h4>
             </header>
-
-            <!-- ng-container class="temp-class" *ngIf="!rerender" -->
-                <prism-block *ngIf="!rerender" id="code-snippet" [code]="snippetModel.codeSnippet" [language]="'javascript'">{{ snippetModel.codeSnippet }}</prism-block>
-            <!-- /ng-container -->
+            <prism-block *ngIf="!rerender" id="code-snippet" [code]="snippetModel.codeSnippet" [language]="'javascript'">{{ snippetModel.codeSnippet }}</prism-block>
         </div>
-
+        <div class="link">
+            <p>
+                For more info see <a href="{{ snippetModel.link }}" target="_blank">{{ snippetModel.link }}</a>
+            </p>
+        </div>
+        <p><br></p>
     </article>
 </div>

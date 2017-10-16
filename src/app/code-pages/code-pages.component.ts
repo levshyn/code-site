@@ -60,7 +60,7 @@ export class CodePagesComponent implements OnInit, OnDestroy {
             this.param = this.snippetService.lastParam;
           }
           this.currentUrl = this.router.url + '/' + this.param;
-  
+
           this.router.navigateByUrl(this.currentUrl/*, { replaceUrl: true }*/);
           // this.snippetService.changeUrl(this.currentUrl);
           // this.router.navigate([this.router.url + '/' + this.param], { replaceUrl: true });
@@ -86,7 +86,7 @@ export class CodePagesComponent implements OnInit, OnDestroy {
             let element: any;
             element = this._elementRef.nativeElement.getElementsByClassName('id-' + this.param)[0];
             if (this.router.isActive(this.router.url, true) && !this._elementRef.nativeElement.classList.contains('active-method-link')) {
-              this.renderer.addClass(element,'active-method-link');
+              this.renderer.addClass(element, 'active-method-link');
             }
           });
       // }
